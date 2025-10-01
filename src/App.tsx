@@ -44,7 +44,14 @@ function App() {
   return (
     <div className="app-container">
       <div>
-        <h1 className="app-title">Voice Agent</h1>
+        <div className="logo-container">
+          <img
+            src="/src/assets/yardvark-logo-transparent.png"
+            alt="Yardvark"
+            className="logo"
+          />
+        </div>
+        <h1 className="app-title">Lawn Care Assistant</h1>
         <div className="input-group">
           <label className="input-label">Microphone</label>
           <select
