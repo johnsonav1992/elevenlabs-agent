@@ -88,8 +88,13 @@ function App() {
         )}
         {isSpeaking && (
           <div className="speaking-indicator">
-            <span>🗣️</span>
-            <span>Agent is speaking...</span>
+            <div className="speaking-wave">
+              <div className="speaking-wave-bar"></div>
+              <div className="speaking-wave-bar"></div>
+              <div className="speaking-wave-bar"></div>
+              <div className="speaking-wave-bar"></div>
+            </div>
+            <span>Assistant is speaking</span>
           </div>
         )}
         <button
