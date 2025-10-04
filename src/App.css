@@ -146,6 +146,21 @@
   animation: pulse 2s ease-in-out infinite;
 }
 
+.speaking-indicator.inactive {
+  opacity: 0.5;
+}
+
+.speaking-indicator.inactive::before {
+  background: #d1d5db;
+  animation: none;
+}
+
+.speaking-indicator.inactive .speaking-wave-bar {
+  background: #d1d5db;
+  animation: none;
+  height: 8px;
+}
+
 @keyframes pulse {
   0%, 100% {
     opacity: 1;

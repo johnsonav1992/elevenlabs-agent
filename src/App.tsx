@@ -69,33 +69,33 @@ function App() {
           </select>
         </div>
         {isConnected && (
-          <div className="volume-indicator">
-            <div className="volume-status">
-              <span className="volume-icon">
-                {inputVolume > 0.01 ? '🎤' : '🎧'}
-              </span>
-              <span className="volume-text">
-                {inputVolume > 0.01 ? 'Speaking' : 'Listening'}
-              </span>
+          <>
+            <div className="volume-indicator">
+              <div className="volume-status">
+                <span className="volume-icon">
+                  {inputVolume > 0.01 ? '🎤' : '🎧'}
+                </span>
+                <span className="volume-text">
+                  {inputVolume > 0.01 ? 'Speaking' : 'Listening'}
+                </span>
+              </div>
+              <div className="volume-bar">
+                <div
+                  className={`volume-bar-fill ${inputVolume > 0.01 ? 'active' : 'inactive'}`}
+                  style={{ width: `${Math.min(inputVolume * 200, 100)}%` }}
+                />
+              </div>
             </div>
-            <div className="volume-bar">
-              <div
-                className={`volume-bar-fill ${inputVolume > 0.01 ? 'active' : 'inactive'}`}
-                style={{ width: `${Math.min(inputVolume * 200, 100)}%` }}
-              />
+            <div className={`speaking-indicator ${!isSpeaking ? 'inactive' : ''}`}>
+              <div className="speaking-wave">
+                <div className="speaking-wave-bar"></div>
+                <div className="speaking-wave-bar"></div>
+                <div className="speaking-wave-bar"></div>
+                <div className="speaking-wave-bar"></div>
+              </div>
+              <span>{isSpeaking ? 'Assistant is speaking' : 'Assistant is listening'}</span>
             </div>
-          </div>
-        )}
-        {isSpeaking && (
-          <div className="speaking-indicator">
-            <div className="speaking-wave">
-              <div className="speaking-wave-bar"></div>
-              <div className="speaking-wave-bar"></div>
-              <div className="speaking-wave-bar"></div>
-              <div className="speaking-wave-bar"></div>
-            </div>
-            <span>Assistant is speaking</span>
-          </div>
+          </>
         )}
         <button
           onClick={isConnected ? endSession : start}
